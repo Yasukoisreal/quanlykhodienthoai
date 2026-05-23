@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.java.quanlykho.controller.MainController"
+            prefWidth="1320" prefHeight="820">
+
+    <!-- LEFT: Dark Sidebar -->
+    <left>
+        <VBox fx:id="sidebar" styleClass="sidebar" minWidth="260" maxWidth="260">
+
+            <!-- Brand Header -->
+            <HBox styleClass="sidebar-header" alignment="CENTER_LEFT" spacing="12">
+                <StackPane styleClass="sidebar-brand-icon">
+                                        <Label text="📱" style="-fx-font-size: 16px;"/>
+                </StackPane>
+                <VBox spacing="2">
+                    <Label text="SMART DEPOT" styleClass="sidebar-brand-title"/>
+                    <Label text="Kho Smartphone ERP" styleClass="sidebar-brand-subtitle"/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                                <Label text="⚡" style="-fx-text-fill: #10b981; -fx-font-size: 14px;"/>
+            </HBox>
+
+            <!-- Navigation Buttons -->
+            <VBox fx:id="sidebarNav" styleClass="sidebar-nav" VBox.vgrow="ALWAYS">
+                <!-- Buttons populated by controller -->
+            </VBox>
+
+            <!-- Footer -->
+            <VBox styleClass="sidebar-footer" spacing="6">
+                <HBox alignment="CENTER_LEFT" spacing="8">
+                    <Region styleClass="sidebar-status-dot"/>
+                    <Label text="SYSTEM CORE LIVE" styleClass="sidebar-status-label"/>
+                </HBox>
+                <Label text="Mô hình đồ án: Client &amp; Server Socket TCP/IP và JavaFX"
+                       styleClass="sidebar-footer-text" wrapText="true"/>
+            </VBox>
+        </VBox>
+    </left>
+
+    <!-- CENTER: Main Content -->
+    <center>
+        <VBox>
+            <!-- Top Header Bar -->
+            <HBox fx:id="topHeader" styleClass="top-header" alignment="CENTER_LEFT" spacing="12">
+                <VBox spacing="2" HBox.hgrow="ALWAYS">
+                    <Label fx:id="headerTitle" text="Trang Chủ" styleClass="header-title"/>
+                    <Label text="Hệ thống đồng bộ dữ liệu chuẩn hóa DTO qua socket cổng 8888"
+                           styleClass="header-subtitle"/>
+                </VBox>
+
+                <Label fx:id="statusBadge" text="🖥 SQL State: CONNECTING..." styleClass="header-status-badge"/>
+
+                <Separator orientation="VERTICAL" prefHeight="30"/>
+
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <StackPane styleClass="header-avatar">
+                        <Label fx:id="avatarLabel" id="avatarLabel" text="AD" style="-fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: 900;"/>
+                    </StackPane>
+                    <VBox spacing="1">
+                        <Label id="headerUserName" text="Đang tải..." styleClass="header-user-name"/>
+                        <Label id="headerUserRole" text="..." styleClass="header-user-role"/>
+                    </VBox>
+                </HBox>
+            </HBox>
+
+            <!-- Content Area with ScrollPane -->
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                        style="-fx-background-color: transparent; -fx-border-color: transparent;">
+                <StackPane fx:id="contentArea" styleClass="content-area" alignment="TOP_LEFT">
+                    <!-- Dynamic content loaded here -->
+                </StackPane>
+            </ScrollPane>
+        </VBox>
+    </center>
+</BorderPane>
